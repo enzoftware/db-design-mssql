@@ -11,6 +11,13 @@ io.sockets.on('connection', newConnection);
 
 function newConnection(socket){
     console.log('new connection ' + socket.id);
+    socket.on('mouse',mouseMessage)
+
+    function mouseMessage(data){
+        socket.broadcast.emit('mouse',data);
+        console.log(data);
+    }
+
 }
 
 console.log("My socket server is running");
