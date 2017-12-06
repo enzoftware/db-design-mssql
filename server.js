@@ -1,8 +1,8 @@
-var expreess = require('express');
-var app = expreess();
+var express = require('express');
+var app = express();
 var server = app.listen(3000);
 
-app.use(expreess.static('public'));
+app.use(express.static('public'));
 
 var socket = require('socket.io');
 var io = socket(server);
@@ -17,7 +17,6 @@ function newConnection(socket){
         socket.broadcast.emit('mouse',data);
         console.log(data);
     }
-
 }
 
 console.log("My socket server is running");
