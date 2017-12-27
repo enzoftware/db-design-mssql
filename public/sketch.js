@@ -1,6 +1,9 @@
 var socket;
+var canvas;
+
 function setup(){
-    createCanvas(300,300);
+    canvas = createCanvas($('#container').width() , 350);
+    canvas.parent('canvasContainer');
     background(51);
     socket = io.connect('http://localhost:3000');
     var messageForm = $('#send-message');
@@ -29,6 +32,17 @@ function setup(){
         fill(125);
         ellipse(data.x,data.y,10,10);
     }
+}
+
+/*
+window.addEventListener('resize',function(){
+
+  canvas.resizeCanvas($(window).width(),100,false);
+});*/
+
+function windowResized() {
+  canvas.resizeCanvas(10,10,true);
+  console.log("resize");
 }
 
 function draw(){
