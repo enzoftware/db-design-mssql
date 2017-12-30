@@ -1,15 +1,13 @@
 #chat{
   height: 500px;
+  overflow-y: auto;
+  white-space: nowrap;
 }
 
 body{
   background-color: white;
 }
 
-#chatwrap{
-  float: left;
-  border: 2px #000 solid;
-}
 
 #contentWrap{
   display: none;

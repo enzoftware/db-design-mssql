@@ -2,7 +2,9 @@ var socket;
 var canvas;
 
 function setup(){
-    canvas = createCanvas($('#container').width() , 350);
+    console.log($('#contentWrap').width() , $('.s10').width(), $('.s2').width() , $('#container').width());
+    canvas = createCanvas( int (( $('#container').width() / 12 ) * 10 )  , 330); // $('#contentWrap').width()
+    console.log(canvas.width);
     canvas.parent('canvasContainer');
     background(51);
     socket = io.connect('http://localhost:3000');
@@ -44,14 +46,18 @@ function setup(){
         var html = ''
         console.log(data);
         for (var i = 0; i < data.length; i++) {
-          html += data[i] + '<br/>';
+          html += '<b>' +  data[i] + ' </b> <br/>';
         }
         users.html(html);
     }
 
     function reciveMessage(data){
       console.log(data);
-      chat.append('<b>' + data.nick + ' : </b>' + data.msg + '<br/>');
+      if(data.msg != '') {
+        chat.append('<b>' + data.nick + ' : </b>' + data.msg + '<br/>');
+      }else {
+        alert("Empty message");
+      }
     }
 
     function newDrawing(data){
