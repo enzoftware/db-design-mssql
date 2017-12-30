@@ -7,11 +7,27 @@ function setup(){
     background(51);
     socket = io.connect('http://localhost:3000');
     var messageForm = $('#send-message');
+    var nickForm = $('#setNick');
+    var nickError = $('#nickError');
+    var nickname = $('#nickname');
+    var users = $('#users');
     var messageBox = $('#message');
     var chat = $('#chat');
 
+    nickForm.submit(function(e){
+      e.preventDefault();
+      socket.emit('new_user',nickname.val() , function(data){
+        if (data) {
+          $('#nickWrap').hide();
+          $('#contentWrap').show();
+        }else {
+          nickError.html('That user name is taken :( ');
+        }
+      });
+      nickname.val('');
+    });
+
     messageForm.submit(function(e){
-      //alert("hello");
       e.preventDefault();
       socket.emit('send_message',messageBox.val());
       console.log(messageBox.val());
@@ -22,9 +38,20 @@ function setup(){
 
     socket.on('new_message', reciveMessage);
 
+    socket.on('usernames', showUsers);
+
+    function showUsers(data){
+        var html = ''
+        console.log(data);
+        for (var i = 0; i < data.length; i++) {
+          html += data[i] + '<br/>';
+        }
+        users.html(html);
+    }
+
     function reciveMessage(data){
       console.log(data);
-      chat.append(data + '<br/>');
+      chat.append('<b>' + data.nick + ' : </b>' + data.msg + '<br/>');
     }
 
     function newDrawing(data){
@@ -35,10 +62,13 @@ function setup(){
 }
 
 /*
+
 window.addEventListener('resize',function(){
 
   canvas.resizeCanvas($(window).width(),100,false);
-});*/
+});
+
+*/
 
 function windowResized() {
   canvas.resizeCanvas(10,10,true);
@@ -50,8 +80,6 @@ function draw(){
 }
 
 function mouseDragged(){
-    console.log("Sending : " +  mouseX + " , "  + mouseY);
-
     var data = {
         x : mouseX,
         y : mouseY
