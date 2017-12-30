@@ -42,7 +42,7 @@ window.addEventListener('resize',function(){
 
 function windowResized() {
   canvas.resizeCanvas(10,10,true);
-  console.log("resize");
+  console.log("resizing window");
 }
 
 function draw(){
