@@ -1,10 +1,19 @@
 var express = require('express');
+var socket = require('socket.io');
+var fs = require('fs');
 var app = express();
 var server = app.listen(3000);
-var socket = require('socket.io');
+
 var io = socket(server);
 var nicknames = [];
 
+fs.readFile('palabras.txt','utf8',function(err,data){
+  if (err) throw err;
+  var array = data.toString().split("\n");
+  for(i in array){
+    console.log(array[i]);
+  }
+});
 
 app.use(express.static('public'));
 
