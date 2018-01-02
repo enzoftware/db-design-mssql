@@ -1,8 +1,9 @@
 var socket;
 var canvas;
+var words;
+var theChosenWord;
 
 function setup(){
-    console.log($('#contentWrap').width() , $('.s10').width(), $('.s2').width() , $('#container').width());
     canvas = createCanvas( int (( $('#container').width() / 12 ) * 10 )  , 330); // $('#contentWrap').width()
     console.log(canvas.width);
     canvas.parent('canvasContainer');
@@ -42,6 +43,14 @@ function setup(){
 
     socket.on('usernames', showUsers);
 
+    socket.on('words',settingUpWords);
+
+    function settingUpWords(data){
+      words = data.toString().split(',');
+      theChosenWord = words[ Math.floor( Math.random() * 10782 ) + 1 ];
+      console.log(theChosenWord);
+    }
+
     function showUsers(data){
         var html = ''
         console.log(data);
@@ -67,23 +76,7 @@ function setup(){
     }
 }
 
-/*
 
-window.addEventListener('resize',function(){
-
-  canvas.resizeCanvas($(window).width(),100,false);
-});
-
-*/
-
-function windowResized() {
-  canvas.resizeCanvas(10,10,true);
-  console.log("resizing window");
-}
-
-function draw(){
-
-}
 
 function mouseDragged(){
     var data = {
