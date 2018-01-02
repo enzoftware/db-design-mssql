@@ -5,19 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <!--Import Google Icon Font-->
-      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-      <!--Import materialize.css-->
-      <link type="text/css" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css"  media="screen,projection"/>
-
-      <!--Let browser know website is optimized for mobile-->
-      <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    </head>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!--Import materialize.css-->
+    <link type="text/css" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css"  media="screen,projection"/>
     <link rel="stylesheet" href="master.css">
     <title>Pinturillo fake</title>
 </head>
 <body>
 
   <div class="container" id="container">
+
 
     <div id="nickWrap">
       <p>Enter a username : </p>
@@ -27,6 +24,9 @@
         <input type="submit" name="submit" value="submit" class="btn waves-effect waves-light" ></input>
       </form>
     </div>
+
+
+
 <div id="contentWrap">
     <div class="row">
 
@@ -42,10 +42,13 @@
 
           <div id="chatwrap">
             <div id="canvasContainer"></div>
+            <div id="wordContainer">
+              <h3 id="word">Abrazar</h3>
+            </div>
             <div id="chat"></div>
             <form id="send-message">
-              <input type="text" id="message" placeholder="Enter your text"></input>
-              <input type="submit" name="" value="Submit" class="btn waves-effect waves-light">
+              <input type="text" id="message" placeholder="Enter your text">
+              <input type="submit" name="submit" value="Submit" class="btn waves-effect waves-light">
             </form>
           </div>
         </div>

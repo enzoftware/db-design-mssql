@@ -1,5 +1,7 @@
+@import url('https://fonts.googleapis.com/css?family=Bungee');
+
 #chat{
-  height: 500px;
+  height: 400px;
   overflow-y: auto;
   white-space: nowrap;
 }
@@ -21,4 +23,11 @@ body{
 
 #nickWrap{
   margin-top: 25%;
+}
+
+#wordContainer{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Bungee', cursive;
 }

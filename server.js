@@ -17,7 +17,9 @@ fs.readFile('palabras.txt','utf8',function(err,data){
 app.use(express.static('public'));
 
 
+
 io.sockets.on('connection', newConnection);
+
 
 function newConnection(socket){
     console.log('new connection ' + socket.id);

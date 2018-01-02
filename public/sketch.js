@@ -14,6 +14,7 @@ function setup(){
     var nickError = $('#nickError');
     var nickname = $('#nickname');
     var users = $('#users');
+    var wordHtml = $('#word');
     var messageBox = $('#message');
     var chat = $('#chat');
 
@@ -48,7 +49,7 @@ function setup(){
     function settingUpWords(data){
       words = data.toString().split(',');
       theChosenWord = words[ Math.floor( Math.random() * 10782 ) + 1 ];
-      console.log(theChosenWord);
+      wordHtml.html(theChosenWord);
     }
 
     function showUsers(data){
