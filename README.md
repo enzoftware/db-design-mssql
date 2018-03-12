@@ -4,7 +4,7 @@
 
 ---
 
-Graffiti is a funny 'Guess what I draw ' game build with Node.js for educational purpouse
+Graffiti is a funny 'Guess what I draw ' game build with **node.js** + **socket.io**
 
 ---
 ### Installation
