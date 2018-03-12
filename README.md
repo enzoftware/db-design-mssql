@@ -1,6 +1,11 @@
-# Pinturillo clone
+<div align="center">
+  <img src="http://blockwatch.com/wp-content/uploads/2013/10/thumbnail_cq5dam_web_720_405.jpg"/>
+</div>
 
-Realtime canvas share :boom:
+---
+
+Graffiti is a funny 'Guess what I draw ' game build with Node.js for educational purpouse
+
 ---
 ### Installation
 ```
