@@ -1,1 +1,1 @@
-# Graffiti
+# RSS News Feed Application
