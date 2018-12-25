@@ -1,4 +1,4 @@
-package com.enzoftware.rssnews
+package com.enzoftware.rssnews.ui
 
 interface BaseMvpPresenter <V : BaseView>{
 

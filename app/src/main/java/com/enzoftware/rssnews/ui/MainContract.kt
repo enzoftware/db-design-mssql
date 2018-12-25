@@ -1,12 +1,12 @@
-package com.enzoftware.rssnews
+package com.enzoftware.rssnews.ui
 
 interface MainContract {
 
-    interface Presenter : BaseMvpPresenter<MainContract.View>{
+    interface Presenter : BaseMvpPresenter<View> {
         fun loadHelloText()
     }
 
-    interface View : BaseView{
+    interface View : BaseView {
         fun onTextLoaded(text: String)
     }
 

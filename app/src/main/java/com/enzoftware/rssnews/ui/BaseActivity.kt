@@ -1,4 +1,4 @@
-package com.enzoftware.rssnews
+package com.enzoftware.rssnews.ui
 
 import android.os.Bundle
 import android.support.annotation.LayoutRes

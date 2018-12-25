@@ -1,9 +1,10 @@
-package com.enzoftware.rssnews
+package com.enzoftware.rssnews.ui
 
 import java.util.*
 
 
-class MainPresenter: BasePresenter<MainContract.View>(), MainContract.Presenter {
+class MainPresenter: BasePresenter<MainContract.View>(),
+    MainContract.Presenter {
 
     private val helloWorldTexts = listOf("HELLO", "WORLD", "RSS", "NEWS")
 
