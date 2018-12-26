@@ -11,10 +11,12 @@ import javax.inject.Inject
 class MainActivity : BaseActivity(), MainContract.View {
 
     @Inject
-    private lateinit var presenter : MainContract.Presenter
+    lateinit var presenter : MainContract.Presenter
+    private lateinit var wrapper: ChromeTabsWrapper
+
 
     override val layoutResource: Int = R.layout.activity_main
-    private lateinit var wrapper: ChromeTabsWrapper
+
 
     override fun init(state: Bundle?) {
         presenter.attach(this)
