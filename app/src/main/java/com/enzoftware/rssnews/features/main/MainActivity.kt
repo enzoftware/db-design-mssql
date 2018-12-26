@@ -4,6 +4,7 @@ import android.os.Bundle
 import com.enzoftware.rssnews.R
 import com.enzoftware.rssnews.base.BaseActivity
 import com.enzoftware.rssnews.di.component.ActivityComponent
+import com.enzoftware.rssnews.features.chrome.ChromeTabsWrapper
 import kotlinx.android.synthetic.main.activity_main.*
 import javax.inject.Inject
 
@@ -16,12 +17,12 @@ class MainActivity : BaseActivity(), MainContract.View {
     private lateinit var wrapper: ChromeTabsWrapper
 
     override fun init(state: Bundle?) {
-        presenter = MainPresenter()
         presenter.attach(this)
         presenter.loadHelloText()
         textViewHello.setOnClickListener {
             presenter.loadHelloText()
         }
+        wrapper = ChromeTabsWrapper(this)
     }
 
     override fun inject(component: ActivityComponent) {
@@ -34,10 +35,12 @@ class MainActivity : BaseActivity(), MainContract.View {
 
     override fun onStart() {
         super.onStart()
+        wrapper.bindCustomTabsService()
     }
 
     override fun onStop() {
         super.onStop()
+        wrapper.unbindCustomTabsService()
     }
 
     override fun onDestroy() {
