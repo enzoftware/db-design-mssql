@@ -1,4 +1,4 @@
-package com.enzoftware.rssnews.ui
+package com.enzoftware.rssnews.base
 
 open class BasePresenter <V : BaseView> : BaseMvpPresenter<V> {
 

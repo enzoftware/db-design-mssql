@@ -1,4 +1,7 @@
-package com.enzoftware.rssnews.ui
+package com.enzoftware.rssnews.features.main
+
+import com.enzoftware.rssnews.base.BaseMvpPresenter
+import com.enzoftware.rssnews.base.BaseView
 
 interface MainContract {
 
