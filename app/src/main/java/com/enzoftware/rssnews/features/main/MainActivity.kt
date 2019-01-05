@@ -5,6 +5,8 @@ import com.enzoftware.rssnews.R
 import com.enzoftware.rssnews.base.BaseActivity
 import com.enzoftware.rssnews.di.component.ActivityComponent
 import com.enzoftware.rssnews.features.chrome.ChromeTabsWrapper
+import com.enzoftware.rssnews.features.rss.RssFragment
+import com.enzoftware.rssnews.model.Feed
 import kotlinx.android.synthetic.main.activity_main.*
 import javax.inject.Inject
 
@@ -17,12 +19,24 @@ class MainActivity : BaseActivity(), MainContract.View {
 
     override val layoutResource: Int = R.layout.activity_main
 
+    override fun onLoadRssFragments(feeds: List<Feed>) {
+        val fragmentList =  ArrayList<RssFragment>()
+        val titles = ArrayList<String>()
+        for (feed in feeds){
+            //fragmentList.add(RssFragment.newInstance(feed))
+            titles.add(feed.name)
+        }
+
+        //val adapter = RssFragmentAdapter(supportFragmentManager, fragmentList, titles)
+        //viewPager.adapter = adapter
+
+    }
 
     override fun init(state: Bundle?) {
         presenter.attach(this)
-        presenter.loadHelloText()
+        // presenter.loadHelloText()
         textViewHello.setOnClickListener {
-            presenter.loadHelloText()
+            // presenter.loadHelloText()
         }
         wrapper = ChromeTabsWrapper(this)
     }
@@ -31,9 +45,6 @@ class MainActivity : BaseActivity(), MainContract.View {
         component.inject(this)
     }
 
-    override fun onTextLoaded(text: String) {
-        textViewHello.text = text
-    }
 
     override fun onStart() {
         super.onStart()

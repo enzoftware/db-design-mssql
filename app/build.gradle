@@ -35,6 +35,7 @@ dependencies {
     implementation "com.android.support:customtabs:$support_version"
     // Dagger2
     implementation "com.google.dagger:dagger:$dagger_version"
+    implementation 'com.android.support:support-v4:28.0.0'
     kapt "com.google.dagger:dagger-compiler:$dagger_version"
     implementation "com.google.code.findbugs:jsr305:$findbugs_version"
 
