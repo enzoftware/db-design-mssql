@@ -2,15 +2,16 @@ package com.enzoftware.rssnews.features.main
 
 import com.enzoftware.rssnews.base.BaseMvpPresenter
 import com.enzoftware.rssnews.base.BaseView
+import com.enzoftware.rssnews.model.Feed
 
 interface MainContract {
 
     interface Presenter : BaseMvpPresenter<View> {
-        fun loadHelloText()
+        fun loadRssFragments()
     }
 
     interface View : BaseView {
-        fun onTextLoaded(text: String)
+        fun onLoadRssFragments(feeds: List<Feed>)
     }
 
     /*

@@ -6,14 +6,11 @@ import java.util.*
 import javax.inject.Inject
 
 
-class MainPresenter @Inject constructor(val service: RssService) : BasePresenter<MainContract.View>(),
+class MainPresenter @Inject constructor(val repository: MainRepository) : BasePresenter<MainContract.View>(),
     MainContract.Presenter {
 
-    private val helloWorldTexts = listOf("HELLO", "WORLD", "RSS", "NEWS")
-
-    override fun loadHelloText() {
-        val random = Random()
-        val hello = helloWorldTexts[random.nextInt(helloWorldTexts.size)]
-        view?.onTextLoaded(hello)
+    override fun loadRssFragments() {
+        view?.onLoadRssFragments(repository.parseFeeds())
     }
+
 }

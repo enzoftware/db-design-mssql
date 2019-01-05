@@ -46,11 +46,11 @@ dependencies {
     implementation "com.squareup.okhttp3:logging-interceptor:$logger_version"
     // Picasso
     implementation "com.squareup.picasso:picasso:$picasso_version"
+    // Gson
+    implementation "com.google.code.gson:gson:$gson_version"
 
     // Leak canary
     debugImplementation "com.squareup.leakcanary:leakcanary-android:$leakcanary_version"
-
-
 
     implementation "com.android.support:design:$support_version"
     testImplementation "junit:junit:$junit_version"
